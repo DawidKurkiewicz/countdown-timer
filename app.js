@@ -2,8 +2,8 @@ let countdown;
 const timerDisplay = document.querySelector(".display__time-left");
 const endTime = document.querySelector(".display__end-time");
 const buttons = document.querySelectorAll("[data-time]");
-const audio = document.querySelector(".audio");
 const stop = document.querySelector(".stop-play")
+const audio = document.querySelector(".audio");
 
 
 function timer(seconds) {
@@ -28,10 +28,13 @@ function displayTimeLeft(seconds) {
     const display = `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
     document.title = display;
     timerDisplay.textContent = display;
-    console.log(display);
     if (display == "0:00") {
-        stop.style.display="block"
+        stop.style.display = "block"
         stop.innerHTML = "Stop alarm"
+        if (!audio) {
+            stop.style.display = "none"
+            return
+        }
         audio.currentTime = 0
         audio.play()
     }
@@ -50,7 +53,7 @@ function startTimer() {
 };
 
 buttons.forEach(button => button.addEventListener("click", startTimer));
-stop.addEventListener("click", ()=> audio.pause())
+stop.addEventListener("click", () => audio.pause())
 document.customForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const mins = this.minutes.value;
