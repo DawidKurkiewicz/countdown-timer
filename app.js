@@ -29,11 +29,12 @@ function displayTimeLeft(seconds) {
     document.title = display;
     timerDisplay.textContent = display;
     if (display == "0:00") {
-        stop.style.display = "block"
-        stop.innerHTML = "Stop alarm"
         if (!audio) {
             stop.style.display = "none"
             return
+        } else {
+            stop.style.display = "block"
+            stop.innerHTML = "Stop alarm"
         }
         audio.currentTime = 0
         audio.play()
