@@ -1,2 +1,2 @@
 countdown-timer
-https://dawidkurkiewicz.github.io/countdown-timer/
+https://timer-dawidkurkiewicz.surge.sh/
