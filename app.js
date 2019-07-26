@@ -27,6 +27,7 @@ function displayTimeLeft(seconds) {
     const remainderSeconds = seconds % 60;
     const display = `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`;
     document.title = display;
+    stop.style.display="block"
     stop.innerHTML = "Stop alarm"
     timerDisplay.textContent = display;
     console.log(display);
